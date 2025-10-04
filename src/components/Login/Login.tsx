@@ -36,24 +36,38 @@ export const Login = () => {
 
   return (
     <form
-      className="flex flex-col p-20 rounded-2xl gap-2 bg-white w-fit"
+      className="flex flex-col p-10 rounded-2xl gap-6 bg-white w-full max-w-md shadow-xl"
       onSubmit={handleSubmit}
     >
-      <input
-        defaultValue="emilys"
-        type="text"
-        name="email"
-        placeholder="Email"
-      />
-      {emailError}
-      <input
-        defaultValue="emilyspass"
-        type="password"
-        name="password"
-        placeholder="Password"
-      />
-      {pswError}
-      <button type="submit">Login</button>
+      <h2 className="text-2xl font-bold text-center mb-4 text-gray-800">
+        Login
+      </h2>
+      <div className="flex flex-col gap-2">
+        <input
+          type="text"
+          name="email"
+          placeholder="Email"
+          className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        {emailError && (
+          <span className="text-sm text-red-500">{emailError}</span>
+        )}
+      </div>
+      <div className="flex flex-col gap-2">
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          className="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        {pswError && <span className="text-sm text-red-500">{pswError}</span>}
+      </div>
+      <button
+        type="submit"
+        className="mt-4 bg-blue-500 text-white py-2 rounded-lg font-semibold hover:bg-blue-600 transition-colors shadow"
+      >
+        Login
+      </button>
     </form>
   );
 };
